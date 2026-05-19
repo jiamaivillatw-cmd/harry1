@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>嘉麥山莊 JAMAY｜山林民宿</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+      background: #2f383c;
+      color: #f4f0e8;
+      line-height: 1.9;
+      letter-spacing: 0.08em;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0.08;
+      background-image: radial-gradient(#ffffff 0.45px, transparent 0.45px);
+      background-size: 18px 18px;
+      mix-blend-mode: screen;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    .top-header {
+      width: min(1180px, 88%);
+      margin: 0 auto;
+      padding: 34px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(47, 56, 60, 0.92);
+      backdrop-filter: blur(12px);
+    }
+
+    .brand {
+      font-size: 28px;
+      letter-spacing: 0.22em;
+      font-weight: 500;
+      line-height: 1.15;
+    }
+
+    .brand span {
+      display: block;
+      margin-top: 6px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 12px;
+      letter-spacing: 0.28em;
+      color: #c9b27c;
+    }
+
+    .nav {
+      display: flex;
+      gap: 26px;
+      font-size: 13px;
+      color: rgba(244, 240, 232, 0.78);
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      position: relative;
+      padding-bottom: 5px;
+    }
+
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: #c9b27c;
+      transition: 0.28s;
+    }
+
+    .nav a:hover {
+      color: #c9b27c;
+    }
+
+    .nav a:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      width: min(1180px, 88%);
+      margin: 0 auto;
+      padding: 30px 0 105px;
+      display: grid;
+      grid-template-columns: 0.78fr 1.22fr;
+      gap: 54px;
+      align-items: end;
+    }
+
+    .eyebrow {
+      font-family: Georgia, "Times New Roman", serif;
+      color: #c9b27c;
+      font-size: 13px;
+      letter-spacing: 0.24em;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 5.6vw, 76px);
+      line-height: 1.22;
+      letter-spacing: 0.15em;
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      color: rgba(244, 240, 232, 0.74);
+      font-size: 15px;
+      max-width: 450px;
+      margin-bottom: 34px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      border: 1px solid rgba(244, 240, 232, 0.55);
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      transition: 0.28s;
+    }
+
+    .btn.gold {
+      background: #c9b27c;
+      border-color: #c9b27c;
+      color: #2f383c;
+      font-weight: 700;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      background: #f4f0e8;
+      color: #2f383c;
+    }
+
+    .hero-photo {
+      position: relative;
+    }
+
+    .hero-photo img {
+      height: 620px;
+      object-fit: cover;
+      filter: saturate(0.78) brightness(0.82) contrast(0.96);
+    }
+
+    .hero-note {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      transform: translateY(46%);
+      width: min(380px, 82%);
+      background: #f4f0e8;
+      color: #2f383c;
+      padding: 24px 26px;
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
+    }
+
+    .hero-note small {
+      display: block;
+      color: #9f783f;
+      font-family: Georgia, "Times New Roman", serif;
+      margin-bottom: 6px;
+    }
+
+    .section {
+      width: min(1180px, 88%);
+      margin: 0 auto;
+      padding: 112px 0;
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 58px;
+    }
+
+    .section-head .en {
+      color: #c9b27c;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 12px;
+      letter-spacing: 0.26em;
+      margin-bottom: 8px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(26px, 3.4vw, 42px);
+      letter-spacing: 0.16em;
+      font-weight: 500;
+    }
+
+    .intro-layout {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .intro-layout img {
+      height: 430px;
+      object-fit: cover;
+      filter: saturate(0.7) brightness(0.82);
+    }
+
+    .intro-text h3 {
+      font-size: 28px;
+      font-weight: 500;
+      letter-spacing: 0.13em;
+      margin-bottom: 22px;
+    }
+
+    .intro-text p {
+      color: rgba(244, 240, 232, 0.72);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .info-lines {
+      margin-top: 30px;
+      border-top: 1px solid rgba(244, 240, 232, 0.18);
+    }
+
+    .info-line {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 20px;
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(244, 240, 232, 0.18);
+      font-size: 13px;
+    }
+
+    .info-line strong {
+      color: #c9b27c;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .feature-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 70px;
+    }
+
+    .feature-card img {
+      height: 190px;
+      object-fit: cover;
+      filter: saturate(0.72) brightness(0.76);
+      margin-bottom: 16px;
+    }
+
+    .feature-card h3 {
+      font-size: 17px;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: #c9b27c;
+    }
+
+    .feature-card p {
+      font-size: 13px;
+      color: rgba(244, 240, 232, 0.62);
+    }
+
+    .wide-photo {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      filter: saturate(0.7) brightness(0.72);
+    }
+
+    .rooms-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 52px 34px;
+    }
+
+    .room-card {
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(244, 240, 232, 0.12);
+      padding: 18px 18px 24px;
+      transition: 0.28s;
+    }
+
+    .room-card:hover {
+      transform: translateY(-8px);
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(201, 178, 124, 0.5);
+    }
+
+    .room-card img {
+      height: 220px;
+      object-fit: cover;
+      filter: saturate(0.7) brightness(0.8);
+      margin-bottom: 18px;
+    }
+
+    .room-card h3 {
+      font-size: 19px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      margin-bottom: 8px;
+    }
+
+    .room-card p {
+      font-size: 13px;
+      color: rgba(244, 240, 232, 0.64);
+      margin-bottom: 14px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .tags span {
+      color: #c9b27c;
+      border: 1px solid rgba(201, 178, 124, 0.38);
+      padding: 2px 9px;
+      font-size: 11px;
+    }
+
+    .price {
+      color: #f4f0e8;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 13px;
+    }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .experience-card {
+      position: relative;
+      min-height: 260px;
+      overflow: hidden;
+    }
+
+    .experience-card img {
+      height: 260px;
+      object-fit: cover;
+      filter: brightness(0.65) saturate(0.72);
+      transition: 0.4s;
+    }
+
+    .experience-card:hover img {
+      transform: scale(1.05);
+      filter: brightness(0.52) saturate(0.82);
+    }
+
+    .experience-card span {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-size: 20px;
+      letter-spacing: 0.15em;
+      color: #fff;
+      text-shadow: 0 3px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .media-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 42px;
+      align-items: start;
+    }
+
+    .video-card,
+    .video-list-card {
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(244, 240, 232, 0.14);
+      padding: 24px;
+    }
+
+    .video-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: #111;
+      margin-bottom: 22px;
+    }
+
+    .video-frame iframe,
+    .video-frame video {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+      object-fit: cover;
+    }
+
+    .video-card h3,
+    .video-list-card h3 {
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      margin-bottom: 10px;
+      color: #f4f0e8;
+    }
+
+    .video-card p,
+    .video-list-card p {
+      font-size: 13px;
+      color: rgba(244, 240, 232, 0.66);
+    }
+
+    .video-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .video-item {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 16px;
+      align-items: center;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(244, 240, 232, 0.14);
+    }
+
+    .video-item img {
+      height: 74px;
+      object-fit: cover;
+      filter: saturate(0.7) brightness(0.8);
+    }
+
+    .video-item strong {
+      display: block;
+      font-size: 14px;
+      color: #c9b27c;
+      margin-bottom: 4px;
+    }
+
+    .video-item span {
+      display: block;
+      font-size: 12px;
+      color: rgba(244, 240, 232, 0.58);
+    }
+
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 34px;
+    }
+
+    .article-card {
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(244, 240, 232, 0.14);
+      transition: 0.28s;
+      overflow: hidden;
+    }
+
+    .article-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(201, 178, 124, 0.5);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .article-card img {
+      height: 210px;
+      object-fit: cover;
+      filter: saturate(0.72) brightness(0.78);
+    }
+
+    .article-content {
+      padding: 24px;
+    }
+
+    .article-date {
+      font-family: Georgia, "Times New Roman", serif;
+      color: #c9b27c;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      margin-bottom: 8px;
+    }
+
+    .article-card h3 {
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
+    }
+
+    .article-card p {
+      font-size: 13px;
+      color: rgba(244, 240, 232, 0.64);
+      margin-bottom: 16px;
+    }
+
+    .article-link {
+      display: inline-block;
+      color: #c9b27c;
+      font-size: 13px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #c9b27c;
+    }
+
+    .cream {
+      background: #f4f0e8;
+      color: #2f383c;
+      padding: 110px 0;
+    }
+
+    .cream .section-head .en {
+      color: #9f783f;
+    }
+
+    .notice-list {
+      width: min(900px, 88%);
+      margin: 0 auto;
+      border-top: 1px solid #d9d0bf;
+    }
+
+    .notice-item {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 24px;
+      padding: 20px 0;
+      border-bottom: 1px solid #d9d0bf;
+      font-size: 14px;
+    }
+
+    .notice-item strong {
+      color: #9f783f;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .booking-section {
+      background: #263033;
+      padding: 112px 0;
+    }
+
+    .booking-layout {
+      width: min(1180px, 88%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 44px;
+      align-items: start;
+    }
+
+    .booking-box,
+    form {
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid rgba(244, 240, 232, 0.14);
+      padding: 30px;
+    }
+
+    .block-title {
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      margin-bottom: 24px;
+      color: #f4f0e8;
+    }
+
+    .room-options {
+      display: grid;
+      gap: 18px;
+    }
+
+    .room-option {
+      display: grid;
+      grid-template-columns: 150px 1fr auto;
+      gap: 18px;
+      align-items: center;
+      padding: 14px;
+      border: 1px solid rgba(244, 240, 232, 0.14);
+      background: rgba(255, 255, 255, 0.035);
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .room-option:hover {
+      border-color: rgba(201, 178, 124, 0.55);
+      transform: translateY(-2px);
+    }
+
+    .room-option img {
+      height: 105px;
+      object-fit: cover;
+      filter: saturate(0.72) brightness(0.78);
+    }
+
+    .room-option h3 {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 4px;
+      color: #f4f0e8;
+    }
+
+    .room-option p {
+      font-size: 12px;
+      color: rgba(244, 240, 232, 0.62);
+    }
+
+    .room-option input {
+      width: 20px;
+      height: 20px;
+      accent-color: #c9b27c;
+    }
+
+    .capacity-note,
+    .child-note {
+      margin-top: 20px;
+      padding: 16px 18px;
+      background: rgba(255, 255, 255, 0.045);
+      border-left: 4px solid #c9b27c;
+      font-size: 13px;
+      color: rgba(244, 240, 232, 0.72);
+    }
+
+    .child-note strong {
+      color: #c9b27c;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px 22px;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 7px;
+      color: #f4f0e8;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(244, 240, 232, 0.18);
+      background: rgba(255, 255, 255, 0.075);
+      padding: 12px 13px;
+      font-family: inherit;
+      font-size: 14px;
+      color: #f4f0e8;
+      outline: none;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(244, 240, 232, 0.44);
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #c9b27c;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    textarea {
+      min-height: 118px;
+      resize: vertical;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    .submit-btn {
+      width: 100%;
+      margin-top: 22px;
+      padding: 15px;
+      border: none;
+      background: #c9b27c;
+      color: #2f383c;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .submit-btn:hover {
+      background: #f4f0e8;
+    }
+
+    .access-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 34px;
+    }
+
+    .access-card {
+      border: 1px solid rgba(244, 240, 232, 0.16);
+      padding: 28px;
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .access-card h3 {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 12px;
+      color: #c9b27c;
+    }
+
+    .access-card p,
+    .access-card li {
+      list-style: none;
+      font-size: 13px;
+      color: rgba(244, 240, 232, 0.68);
+      margin-bottom: 6px;
+    }
+
+    .map-box {
+      margin-top: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(244, 240, 232, 0.18);
+    }
+
+    .map-box iframe {
+      width: 100%;
+      height: 230px;
+      border: 0;
+      display: block;
+      filter: grayscale(0.25) brightness(0.82);
+    }
+
+    .map-link {
+      display: inline-block;
+      margin-top: 14px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #c9b27c;
+      color: #c9b27c;
+      font-size: 13px;
+    }
+
+    footer {
+      padding: 38px 20px;
+      text-align: center;
+      color: rgba(244, 240, 232, 0.48);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 12px;
+      border-top: 1px solid rgba(244, 240, 232, 0.12);
+    }
+
+    @media (max-width: 980px) {
+      .top-header {
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .nav {
+        justify-content: center;
+      }
+
+      .hero,
+      .intro-layout,
+      .media-layout,
+      .booking-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-photo img {
+        height: 460px;
+      }
+
+      .rooms-grid,
+      .feature-strip,
+      .access-grid,
+      .articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .experience-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .top-header,
+      .hero,
+      .section,
+      .booking-layout {
+        width: 90%;
+      }
+
+      .brand {
+        font-size: 22px;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .hero-photo img,
+      .wide-photo {
+        height: 340px;
+      }
+
+      .rooms-grid,
+      .feature-strip,
+      .experience-grid,
+      .access-grid,
+      .articles-grid,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .room-option,
+      .video-item {
+        grid-template-columns: 1fr;
+      }
+
+      .room-option img,
+      .video-item img {
+        height: 180px;
+      }
+
+      .notice-item,
+      .info-line {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .booking-box,
+      form {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="top-header">
+    <a href="#top" class="brand">嘉麥山莊<span>JAMAY</span></a>
+    <nav class="nav">
+      <a href="#about">關於山莊</a>
+      <a href="#rooms">房型介紹</a>
+      <a href="#experience">環境設施</a>
+      <a href="#media">影片介紹</a>
+      <a href="#articles">山莊文章</a>
+      <a href="#notice">入住須知</a>
+      <a href="#booking">訂房詢問</a>
+      <a href="#access">交通聯絡</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">JAMAY MOUNTAIN VILLA</div>
+        <h1>山林裡<br />安靜住一晚</h1>
+        <p>嘉麥山莊 Jamay 位於新北市烏來山區，適合家庭旅行、朋友聚會、榻榻米住宿與包棟度假。用一晚的時間，把步調慢下來。</p>
+        <div class="buttons">
+          <a href="#rooms" class="btn gold">查看房型</a>
+          <a href="#booking" class="btn">訂房詢問</a>
+        </div>
+      </div>
+
+      <div class="hero-photo">
+        <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1800&q=80" alt="嘉麥山莊山林主視覺" />
+        <div class="hero-note">
+          <small>住宿公告</small>
+          <strong>可在本頁下方勾選多間房型，填寫幾位大人、幾位小孩後寄出詢問。</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="section-head">
+        <div class="en">ABOUT</div>
+        <h2>關於嘉麥山莊</h2>
+      </div>
+
+      <div class="intro-layout">
+        <img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=1400&q=80" alt="嘉麥山莊外觀與自然環境" />
+        <div class="intro-text">
+          <h3>把城市留在遠方，住進山林裡</h3>
+          <p>嘉麥山莊 Jamay 保留自然、安靜、樸實的住宿感受，讓旅人可以暫時離開城市，在山裡好好休息。</p>
+          <p>這裡適合家庭旅行、朋友聚會、團體包棟，也適合想簡單放空、安靜睡一晚的人。</p>
+
+          <div class="info-lines">
+            <div class="info-line"><strong>位置</strong><span>新北市烏來區福山里李茂岸33號</span></div>
+            <div class="info-line"><strong>入住</strong><span>下午 2:00 後</span></div>
+            <div class="info-line"><strong>退房</strong><span>上午 12:00 前</span></div>
+            <div class="info-line"><strong>訂房</strong><span>填寫表單後，以 Email 詢問空房</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-strip">
+        <article class="feature-card">
+          <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=900&q=80" alt="山林景色" />
+          <h3>山林景色</h3>
+          <p>被綠意與自然包圍，適合放慢步調、散步、拍照與休息。</p>
+        </article>
+
+        <article class="feature-card">
+          <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=900&q=80" alt="住宿空間" />
+          <h3>舒適住宿</h3>
+          <p>提供雙人房、家庭四人房 A/B/C、榻榻米房與包棟住宿。</p>
+        </article>
+
+        <article class="feature-card">
+          <img src="https://images.unsplash.com/photo-1522156373667-4c7234bbd804?auto=format&fit=crop&w=900&q=80" alt="朋友聚會" />
+          <h3>朋友聚會</h3>
+          <p>適合家庭旅行、朋友同行、生日聚會、小旅行與團體包棟需求。</p>
+        </article>
+      </div>
+    </section>
+
+    <img class="wide-photo" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=80" alt="嘉麥山莊大圖區塊" />
+
+    <section class="section" id="rooms">
+      <div class="section-head">
+        <div class="en">ROOMS</div>
+        <h2>房型介紹</h2>
+      </div>
+
+      <div class="rooms-grid">
+        <article class="room-card">
+          <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80" alt="溫馨雙人房" />
+          <h3>溫馨雙人房</h3>
+          <p>適合兩位旅人入住，簡單、安靜、舒適。</p>
+          <div class="tags"><span>最多 2 人</span><span>雙人床</span><span>獨立衛浴</span></div>
+          <div class="price">價格請私訊詢問</div>
+        </article>
+
+        <article class="room-card">
+          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80" alt="家庭四人房 A" />
+          <h3>家庭四人房 A</h3>
+          <p>適合家庭或朋友入住，兩張大床。</p>
+          <div class="tags"><span>最多 4 人</span><span>兩張大床</span><span>獨立衛浴</span></div>
+          <div class="price">價格請私訊詢問</div>
+        </article>
+
+        <article class="room-card">
+          <img src="https://images.unsplash.com/photo-1560448075-bb485b067938?auto=format&fit=crop&w=1200&q=80" alt="家庭四人房 B" />
+          <h3>家庭四人房 B</h3>
+          <p>適合親子家庭或朋友同行。</p>
+          <div class="tags"><span>最多 4 人</span><span>兩張大床</span><span>獨立衛浴</span></div>
+          <div class="price">價格請私訊詢問</div>
+        </article>
+
+        <article class="room-card">
+          <img src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1200&q=80" alt="家庭四人房 C" />
+          <h3>家庭四人房 C</h3>
+          <p>寬敞舒適的四人房型。</p>
+          <div class="tags"><span>最多 4 人</span><span>兩張大床</span><span>獨立衛浴</span></div>
+          <div class="price">價格請私訊詢問</div>
+        </article>
+
+        <article class="room-card">
+          <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80" alt="榻榻米房" />
+          <h3>榻榻米房</h3>
+          <p>木質調與榻榻米空間。</p>
+          <div class="tags"><span>3～4 人</span><span>榻榻米</span><span>親子友善</span></div>
+          <div class="price">價格請私訊詢問</div>
+        </article>
+
+        <article class="room-card">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" alt="包棟住宿" />
+          <h3>包棟住宿</h3>
+          <p>適合多人旅行與團體包棟。</p>
+          <div class="tags"><span>最多 18 人</span><span>團體推薦</span><span>可詢問方案</span></div>
+          <div class="price">價格請私訊詢問</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="section-head">
+        <div class="en">EXPERIENCE</div>
+        <h2>環境與設施</h2>
+      </div>
+
+      <div class="experience-grid">
+        <a class="experience-card" href="#rooms">
+          <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=900&q=80" alt="住宿空間" />
+          <span>住宿空間</span>
+        </a>
+
+        <a class="experience-card" href="#experience">
+          <img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?auto=format&fit=crop&w=900&q=80" alt="山林環境" />
+          <span>山林環境</span>
+        </a>
+
+        <a class="experience-card" href="#notice">
+          <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=80" alt="公共區域" />
+          <span>公共區域</span>
+        </a>
+
+        <a class="experience-card" href="#booking">
+          <img src="https://images.unsplash.com/photo-1522156373667-4c7234bbd804?auto=format&fit=crop&w=900&q=80" alt="包棟活動" />
+          <span>包棟活動</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="media">
+      <div class="section-head">
+        <div class="en">MOVIE</div>
+        <h2>影片介紹</h2>
+      </div>
+
+      <div class="media-layout">
+        <article class="video-card">
+          <div class="video-frame">
+            <!-- 把下面 YouTube 影片網址換成你的影片 embed 網址 -->
+            <iframe
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              title="嘉麥山莊影片介紹"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <h3>嘉麥山莊的一日山林時光</h3>
+          <p>這裡可以放山莊介紹影片、房間導覽、環境介紹，讓客人更快了解住宿氛圍。</p>
+        </article>
+
+        <aside class="video-list-card">
+          <h3>影片可以放這些內容</h3>
+          <p>建議準備 2～4 支短影片，讓網站看起來更豐富。</p>
+
+          <div class="video-list">
+            <div class="video-item">
+              <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=80" alt="山林影片" />
+              <div>
+                <strong>山林環境介紹</strong>
+                <span>拍攝外觀、道路、山景、清晨與夜晚氛圍。</span>
+              </div>
+            </div>
+
+            <div class="video-item">
+              <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80" alt="房間影片" />
+              <div>
+                <strong>房型導覽影片</strong>
+                <span>介紹雙人房、四人房、榻榻米房與包棟空間。</span>
+              </div>
+            </div>
+
+            <div class="video-item">
+              <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=600&q=80" alt="公共空間影片" />
+              <div>
+                <strong>公共空間介紹</strong>
+                <span>放客廳、庭院、用餐、聊天與聚會空間。</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="articles">
+      <div class="section-head">
+        <div class="en">JOURNAL</div>
+        <h2>山莊文章</h2>
+      </div>
+
+      <div class="articles-grid">
+        <article class="article-card">
+          <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=900&q=80" alt="烏來山林旅行" />
+          <div class="article-content">
+            <div class="article-date">2026.05</div>
+            <h3>來烏來山裡住一晚</h3>
+            <p>介紹嘉麥山莊周邊山林、適合入住的季節，以及來到山裡可以怎麼安排一段慢旅行。</p>
+            <a class="article-link" href="#">閱讀文章</a>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <img src="https://images.unsplash.com/photo-1522156373667-4c7234bbd804?auto=format&fit=crop&w=900&q=80" alt="包棟住宿" />
+          <div class="article-content">
+            <div class="article-date">2026.05</div>
+            <h3>包棟住宿適合什麼人？</h3>
+            <p>朋友出遊、家庭聚會、生日活動或小型團體旅行，都可以用包棟方式享受更完整的空間。</p>
+            <a class="article-link" href="#">閱讀文章</a>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80" alt="親子入住" />
+          <div class="article-content">
+            <div class="article-date">2026.05</div>
+            <h3>親子入住小提醒</h3>
+            <p>整理兒童入住、房型選擇、行李準備、山區溫差與訂房前可以先詢問的事項。</p>
+            <a class="article-link" href="#">閱讀文章</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="cream" id="notice">
+      <div class="section-head">
+        <div class="en">INFORMATION</div>
+        <h2>入住須知</h2>
+      </div>
+
+      <div class="notice-list">
+        <div class="notice-item">
+          <strong>入住時間</strong>
+          <p>入住時間為下午 2:00 後，退房時間為上午 12:00 前。</p>
+        </div>
+
+        <div class="notice-item">
+          <strong>房型資訊</strong>
+          <p>家庭四人房分為 A、B、C，另有溫馨雙人房、榻榻米房與包棟住宿。</p>
+        </div>
+
+        <div class="notice-item">
+          <strong>兒童入住說明</strong>
+          <p>0～2歲嬰幼兒不佔床免費入住。3～5歲兒童不佔床可免費入住，每房限 1 位。6歲以上兒童視同成人計算入住人數。</p>
+        </div>
+
+        <div class="notice-item">
+          <strong>訂房方式</strong>
+          <p>請在下方訂房區勾選房型，可一次選多間房，填寫幾位大人、幾位小孩後寄出 Email 詢問。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="booking-section" id="booking">
+      <div class="section-head">
+        <div class="en">BOOKING</div>
+        <h2>訂房詢問</h2>
+      </div>
+
+      <div class="booking-layout">
+        <section class="booking-box">
+          <h2 class="block-title">選擇房型，可複選</h2>
+
+          <div class="room-options">
+            <label class="room-option">
+              <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80" alt="溫馨雙人房" />
+              <div>
+                <h3>溫馨雙人房</h3>
+                <p>最多 2 人｜雙人床｜獨立衛浴</p>
+              </div>
+              <input type="checkbox" name="rooms" value="溫馨雙人房" data-max="2" onchange="updateCapacityHint()" />
+            </label>
+
+            <label class="room-option">
+              <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80" alt="家庭四人房 A" />
+              <div>
+                <h3>家庭四人房 A</h3>
+                <p>最多 4 人｜兩張大床｜獨立衛浴</p>
+              </div>
+              <input type="checkbox" name="rooms" value="家庭四人房 A" data-max="4" onchange="updateCapacityHint()" />
+            </label>
+
+            <label class="room-option">
+              <img src="https://images.unsplash.com/photo-1560448075-bb485b067938?auto=format&fit=crop&w=800&q=80" alt="家庭四人房 B" />
+              <div>
+                <h3>家庭四人房 B</h3>
+                <p>最多 4 人｜兩張大床｜獨立衛浴</p>
+              </div>
+              <input type="checkbox" name="rooms" value="家庭四人房 B" data-max="4" onchange="updateCapacityHint()" />
+            </label>
+
+            <label class="room-option">
+              <img src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=800&q=80" alt="家庭四人房 C" />
+              <div>
+                <h3>家庭四人房 C</h3>
+                <p>最多 4 人｜兩張大床｜獨立衛浴</p>
+              </div>
+              <input type="checkbox" name="rooms" value="家庭四人房 C" data-max="4" onchange="updateCapacityHint()" />
+            </label>
+
+            <label class="room-option">
+              <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80" alt="榻榻米房" />
+              <div>
+                <h3>榻榻米房</h3>
+                <p>建議 3～4 人｜榻榻米｜親子友善</p>
+              </div>
+              <input type="checkbox" name="rooms" value="榻榻米房" data-max="4" data-min="3" onchange="updateCapacityHint()" />
+            </label>
+
+            <label class="room-option">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="包棟住宿" />
+              <div>
+                <h3>包棟住宿</h3>
+                <p>最多 18 人｜團體推薦｜可詢問方案</p>
+              </div>
+              <input type="checkbox" name="rooms" value="包棟住宿" data-max="18" onchange="updateCapacityHint()" />
+            </label>
+          </div>
+
+          <p id="capacityHint" class="capacity-note">請先勾選房型，系統會自動計算可入住總人數。</p>
+
+          <div class="child-note">
+            <strong>兒童入住說明：</strong><br />
+            0～2歲嬰幼兒不佔床免費入住。3～5歲兒童不佔床可免費入住，每房限 1 位。6歲以上兒童視同成人計算入住人數。
+          </div>
+        </section>
+
+        <form onsubmit="sendBooking(event)">
+          <h2 class="block-title">填寫資料</h2>
+
+          <div class="form-grid">
+            <div>
+              <label for="name">姓名</label>
+              <input id="name" type="text" placeholder="請填入姓名" required />
+            </div>
+
+            <div>
+              <label for="phone">電話</label>
+              <input id="phone" type="tel" placeholder="請填入電話" required />
+            </div>
+
+            <div>
+              <label for="checkin">入住日期</label>
+              <input id="checkin" type="date" required />
+            </div>
+
+            <div>
+              <label for="checkout">退房日期</label>
+              <input id="checkout" type="date" required />
+            </div>
+
+            <div>
+              <label for="adults">大人人數</label>
+              <input id="adults" type="number" min="1" placeholder="例如：2" required oninput="updateCapacityHint()" />
+            </div>
+
+            <div>
+              <label for="children">小孩人數</label>
+              <input id="children" type="number" min="0" placeholder="例如：1" required oninput="updateCapacityHint()" />
+            </div>
+
+            <div class="full">
+              <label for="message">備註</label>
+              <textarea id="message" placeholder="例如：小孩年齡、包棟、加床、停車、飲食需求、其他問題"></textarea>
+            </div>
+          </div>
+
+          <button class="submit-btn" type="submit">送出訂房詢問</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" id="access">
+      <div class="section-head">
+        <div class="en">ACCESS</div>
+        <h2>交通與聯絡</h2>
+      </div>
+
+      <div class="access-grid">
+        <div class="access-card">
+          <h3>聯絡資訊</h3>
+          <p>電話：0912-813-700</p>
+          <p>Email：jiamaivilla.tw@gmail.com</p>
+          <p>地址：新北市烏來區福山里李茂岸33號</p>
+        </div>
+
+        <div class="access-card">
+          <h3>交通方式</h3>
+          <p>建議自行開車前往。</p>
+          <p>可於訂房時詢問停車位置與導航提醒。</p>
+          <div class="map-box">
+            <iframe
+              src="https://www.google.com/maps?q=新北市烏來區福山里李茂岸33號&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="嘉麥山莊 Google 地圖">
+            </iframe>
+          </div>
+          <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=新北市烏來區福山里李茂岸33號" target="_blank">開啟 Google 地圖</a>
+        </div>
+
+        <div class="access-card">
+          <h3>房型列表</h3>
+          <ul>
+            <li>溫馨雙人房</li>
+            <li>家庭四人房 A</li>
+            <li>家庭四人房 B</li>
+            <li>家庭四人房 C</li>
+            <li>榻榻米房</li>
+            <li>包棟住宿</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>Copyright © JAMAY MOUNTAIN VILLA. All Rights Reserved.</footer>
+
+  <script>
+    function getSelectedRooms() {
+      return Array.from(document.querySelectorAll('input[name="rooms"]:checked'));
+    }
+
+    function getRoomSummary() {
+      const selectedRooms = getSelectedRooms();
+      const roomNames = selectedRooms.map(function(room) {
+        return room.value;
+      });
+      const maxTotal = selectedRooms.reduce(function(sum, room) {
+        return sum + Number(room.dataset.max || 0);
+      }, 0);
+      const hasTatamiOnly = selectedRooms.length === 1 && selectedRooms[0].value === "榻榻米房";
+
+      return {
+        selectedRooms: selectedRooms,
+        roomNames: roomNames,
+        maxTotal: maxTotal,
+        minTotal: hasTatamiOnly ? 3 : 1
+      };
+    }
+
+    function updateCapacityHint() {
+      const adults = Number(document.getElementById("adults").value || 0);
+      const children = Number(document.getElementById("children").value || 0);
+      const total = adults + children;
+      const hint = document.getElementById("capacityHint");
+      const summary = getRoomSummary();
+
+      if (summary.selectedRooms.length === 0) {
+        hint.textContent = "請先勾選房型，系統會自動計算可入住總人數。";
+        hint.style.color = "rgba(244, 240, 232, 0.72)";
+        return;
+      }
+
+      hint.textContent =
+        "已選擇：" + summary.roomNames.join("、") +
+        "。最多可入住 " + summary.maxTotal +
+        " 人。目前填寫：" + adults +
+        " 位大人、" + children +
+        " 位小孩，共 " + total + " 人。";
+
+      hint.style.color = "rgba(244, 240, 232, 0.72)";
+
+      if (total > 0 && total > summary.maxTotal) {
+        hint.style.color = "#e59b86";
+        hint.textContent =
+          "目前共 " + total +
+          " 人，已超過所選房型最多 " + summary.maxTotal +
+          " 人，請調整人數或多選一間房。";
+      }
+
+      if (summary.minTotal === 3 && total > 0 && total < 3) {
+        hint.style.color = "#e59b86";
+        hint.textContent =
+          "榻榻米房建議 3～4 人入住，目前共 " +
+          total +
+          " 人，請調整人數或改選其他房型。";
+      }
+    }
+
+    function sendBooking(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const phone = document.getElementById("phone").value;
+      const checkin = document.getElementById("checkin").value;
+      const checkout = document.getElementById("checkout").value;
+      const adults = document.getElementById("adults").value;
+      const children = document.getElementById("children").value;
+      const message = document.getElementById("message").value;
+      const totalGuests = Number(adults || 0) + Number(children || 0);
+      const summary = getRoomSummary();
+
+      if (summary.selectedRooms.length === 0) {
+        alert("請至少勾選一個房型。");
+        return;
+      }
+
+      if (totalGuests > summary.maxTotal) {
+        alert(
+          "目前共 " +
+          totalGuests +
+          " 人，已超過所選房型最多 " +
+          summary.maxTotal +
+          " 人，請調整人數或多選一間房。"
+        );
+        return;
+      }
+
+      if (summary.minTotal === 3 && totalGuests < 3) {
+        alert("榻榻米房建議 3～4 人入住，目前共 " + totalGuests + " 人，請調整人數或改選其他房型。");
+        return;
+      }
+
+      const subject = encodeURIComponent("嘉麥山莊訂房詢問");
+      const bodyText = [
+        "您好，我想詢問嘉麥山莊訂房：",
+        "",
+        "姓名：" + name,
+        "電話：" + phone,
+        "入住日期：" + checkin,
+        "退房日期：" + checkout,
+        "房型：" + summary.roomNames.join("、"),
+        "大人人數：" + adults,
+        "小孩人數：" + children,
+        "總人數：" + totalGuests + " 人",
+        "備註：" + message
+      ].join(String.fromCharCode(10));
+
+      const body = encodeURIComponent(bodyText);
+      const email = "jiamaivilla.tw@gmail.com";
+
+      window.open("mailto:" + email + "?subject=" + subject + "&body=" + body, "_blank");
+    }
+  </script>
+</body>
+</html>
